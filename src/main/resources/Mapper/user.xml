@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="site.cmsystem.admin.dao.UserMapper">
+    <select id="checkUser" resultType="User">
+        select * from user where username=#{user.username} and password=#{user.password}
+    </select>
+
+
+    <insert id="addUser" parameterType="User">
+        insert into user(username,password,realname,phone,email,role_id) values (#{user.username},#{user.password},#{user.realname},#{user.phone},#{user.email},#{user.role_id});
+    </insert>
+
+</mapper>
